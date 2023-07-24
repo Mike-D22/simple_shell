@@ -7,15 +7,14 @@ What really happens when you type a command into a shell? How does it know how t
 The simple shell is an application that reads lines from either a file or the terminal, interprets them, and executes them. In most cases, it provides a command line user interface for Unix-like operating systems, where can interactively type directly to the running shell or pipe in shell scripts. In this project, we designed and implemented a simple UNIX command line interpreter from the ground ^-^.
 
 # - AUTHORS
-- Runo Mercy
-- Otuko Mercy Sheila
-
+- Henry Ndlovu
+- Mike Dunda
+  
 # Resources
 ## Read or watch:
 
 Unix shell
 Thompson shell
-Ken Thompson
 Everything you need to know to start coding your own shell concept page
 man or help:
 
