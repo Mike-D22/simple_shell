@@ -37,7 +37,7 @@ char *_getenv(info_t *info, const char *name)
 /**
  * _mysetenv - Initialize a new environment variable,
  *             or modify an existing one
- * @info: The Structure containing potential arguments. Used to maintain
+ * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
  *  Return: Always 0
  */
@@ -55,21 +55,24 @@ int _mysetenv(info_t *info)
 
 /**
  * _myunsetenv - Remove an environment variable
- * @info: The Structure containing potential arguments. Used to maintain
+ * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
  *  Return: Always 0
  */
 int _myunsetenv(info_t *info)
 {
-	int i;
+	int i = 1;
 
 	if (info->argc == 1)
 	{
 		_eputs("Too few arguements.\n");
 		return (1);
 	}
-	for (i = 1; i <= info->argc; i++)
+	while (i <= info->argc)
+	{
 		_unsetenv(info, info->argv[i]);
+		i++;
+	}
 
 	return (0);
 }
@@ -83,9 +86,9 @@ int _myunsetenv(info_t *info)
 int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;
-	size_t i;
+	size_t i = 0;
 
-	for (i = 0; environ[i]; i++)
+	for (; environ[i]; i++)
 		add_node_end(&node, environ[i], 0);
 	info->env = node;
 	return (0);
