@@ -43,10 +43,12 @@ int write_history(info_t *info)
 	free(filename);
 	if (fd == -1)
 		return (-1);
-	for (node = info->history; node; node = node->next)
+	node = info->history;
+	while (node)
 	{
 		_putsfd(node->str, fd);
 		_putfd('\n', fd);
+		node = node->next;
 	}
 	_putfd(BUF_FLUSH, fd);
 	close(fd);

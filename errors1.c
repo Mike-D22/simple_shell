@@ -12,7 +12,7 @@ int _erratoi(char *s)
 	unsigned long int result = 0;
 
 	if (*s == '+')
-		s++;  /* TODO: why does this make main return 255? */
+		s++;
 	for (i = 0;  s[i] != '\0'; i++)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
@@ -70,6 +70,7 @@ int print_d(int input, int fd)
 	else
 		_abs_ = input;
 	current = _abs_;
+
 	for (i = 1000000000; i > 1; i /= 10)
 	{
 		if (_abs_ / i)
@@ -129,12 +130,15 @@ char *convert_number(long int num, int base, int flags)
  */
 void remove_comments(char *buf)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; buf[i] != '\0'; i++)
+	while (buf[i] != '\0')
+	{
 		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
 		{
 			buf[i] = '\0';
 			break;
 		}
+		i++;
+	}
 }
