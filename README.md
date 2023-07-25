@@ -9,7 +9,7 @@ The simple shell is an application that reads lines from either a file or the te
 # - AUTHORS
 - Henry Ndlovu
 - Mike Dunda
-  
+
 # Resources
 ## Read or watch:
 
