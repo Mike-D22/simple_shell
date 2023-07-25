@@ -89,12 +89,11 @@ list_t *node_starts_with(list_t *node, char *prefix, char c)
 {
 	char *p = NULL;
 
-	while (node)
+	for (; node; node = node->next)
 	{
 		p = starts_with(node->str, prefix);
 		if (p && ((c == -1) || (*p == c)))
 			return (node);
-		node = node->next;
 	}
 	return (NULL);
 }
