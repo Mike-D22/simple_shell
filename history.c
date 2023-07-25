@@ -6,7 +6,6 @@
  *
  * Return: allocated string containg history file
  */
-
 char *get_history_file(info_t *info)
 {
 	char *buf, *dir;
@@ -23,7 +22,6 @@ char *get_history_file(info_t *info)
 	_strcat(buf, HIST_FILE);
 	return (buf);
 }
-
 /**
  * write_history - creates a file, or appends to an existing file
  * @info: the parameter struct
@@ -54,7 +52,6 @@ int write_history(info_t *info)
 	close(fd);
 	return (1);
 }
-
 /**
  * read_history - reads history from file
  * @info: the parameter struct
@@ -70,7 +67,6 @@ int read_history(info_t *info)
 
 	if (!filename)
 		return (0);
-
 	fd = open(filename, O_RDONLY);
 	free(filename);
 	if (fd == -1)
@@ -87,8 +83,7 @@ int read_history(info_t *info)
 	if (rdlen <= 0)
 		return (free(buf), 0);
 	close(fd);
-	i = 0;
-	while (i < fsize)
+	for (i = 0; i < fsize; i++)
 	{
 		if (buf[i] == '\n')
 		{
@@ -96,7 +91,6 @@ int read_history(info_t *info)
 			build_history_list(info, buf + last, linecount++);
 			last = i + 1;
 		}
-		i++;
 	}
 	if (last != i)
 		build_history_list(info, buf + last, linecount++);
