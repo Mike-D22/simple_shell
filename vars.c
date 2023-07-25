@@ -1,7 +1,7 @@
-#include "shell.h"
+#include"shell.h"
 
 /**
- * is_chain - test if current char in buffer is a chain delimeter
+ * is_chain - it tests if current char in buffer is a chain delimeter
  * @info: the parameter struct
  * @buf: the char buffer
  * @p: address of current position in buf
@@ -24,9 +24,9 @@ int is_chain(info_t *info, char *buf, size_t *p)
 		j++;
 		info->cmd_buf_type = CMD_AND;
 	}
-	else if (buf[j] == ';') /* found end of this command */
+	else if (buf[j] == ';')
 	{
-		buf[j] = 0; /* replace semicolon with null */
+		buf[j] = 0;
 		info->cmd_buf_type = CMD_CHAIN;
 	}
 	else
@@ -140,9 +140,8 @@ int replace_vars(info_t *info)
 	}
 	return (0);
 }
-
 /**
- * replace_string - replaces string
+ * replace_string - it replaces string
  * @old: address of old string
  * @new: new string
  *
